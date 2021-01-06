@@ -1,0 +1,599 @@
+body{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Lobster', arial;
+}
+
+h1 {
+    width: 100%;
+    margin-bottom: 2em;
+    font-family: 'Lobster', arial;
+    text-align: center;
+}
+
+header{
+  margin-top: 0em;
+      height: 5em; 
+      background:rgb(243, 233, 241);
+  }
+  
+.logo_site{
+    width: 11em;
+    height: 5em;
+}
+
+nav{
+    width: 100%;
+    height: 2em;
+    margin-right: 2em;
+    z-index: 0;
+    position: absolute;
+}
+
+nav button{
+    margin-right: 2em;
+    
+}
+nav button a{
+    text-decoration: none;
+}
+
+.search{
+    float: right;
+    display: flex;  
+}
+
+.menu{
+    display: none;
+}
+
+/*=======Section  index ================*/
+
+#conteneur{
+    background : linear-gradient(to bottom right, #D28036, #935DF4);
+    margin-top: 0em;
+    padding: 0em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+ #vCam0 , #vCam1 ,#vCam2 , #vCam3, #vCam4{
+    width: 25%;
+    border: 1px solid black;
+    background: white;
+    margin-bottom: 2em;
+    padding-bottom: 0.5em;
+}
+
+h2 {
+    height: 0.5em;
+    margin-top: 0.2em;
+    font-size: 1em;
+    text-align: center;
+}
+
+img{
+    width: 100%;  
+}
+
+article{
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    margin-bottom: 1em;
+}
+
+price{
+    border: 1px solid black;
+    padding: 0.2em;
+    margin-left: 1em;
+}
+
+
+/*======== page produit ==========*/
+#conteneur_produit{
+   width: 100%;
+    background : linear-gradient(to bottom right, #D28036, #935DF4);
+    margin-top: 0em;
+    padding: 0.5em;
+    padding-left: 10em;
+}
+
+#title{
+    width: 10%;
+    height: 1.5em;
+    margin-left: 50%; 
+}
+
+#img_produit{
+    margin-top: 2em;
+    width: 30%;
+    height: 20em;
+    float: left;
+    margin-left: 5em;   
+}
+
+#image_produit{
+    width: 100%;
+    height: 20.5em;
+}
+
+#description_produit{
+    margin-top: 4em;
+    width: 20%;
+    height: 7em;
+    background-color: white;
+    margin-left: 50%;   
+}
+
+#choix_option{
+    margin-top: 18em;
+    margin-left: 50%;
+    position: absolute;
+    z-index: 1;
+}
+
+#prix_produit{
+    background-color: white;
+    margin-top: 5em;
+    margin-left: 14%; 
+    position: absolute;
+}
+
+#button{
+    width: 20em;
+    height: 4em;
+    border-radius: 2em;
+    margin-left: 14%;
+    margin-top: 11em;
+    text-decoration: none;
+    font-size: 0.9em;
+}
+
+/*===================page panier ==============*/
+
+.page_panier{
+    background:rgb(240, 240, 240);
+}
+
+.titre_detail_panier{
+    width: 20%;
+}
+
+#titreRecap{
+    width: 100%;
+    margin-left: 0em;
+}
+
+#div_titre{
+    background:blue;
+}
+
+#commande_panier{
+    background:rgb(240, 240, 240);
+    margin-top: 2em; 
+    margin-left: 0.5em;
+    margin-right: 0.5em; 
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+#description_produit_panier{
+    width: 100%;
+    padding-left: 2em;
+}
+
+.div_article{
+    width: 60%;
+    height: 7em;
+    border-radius: 1em;
+    background:white;
+    margin: 1em 1em 0em 1em;
+    display: flex;
+    border:1px solid rgba(161, 160, 160, 0.7);
+    box-shadow: 5px 5px 5px rgba(161, 160, 160, 0.7);
+}
+
+#article_image{
+    width: 20%;
+    height: 5em;
+    margin: 1em 0em 1em 2em;
+    border: 1px solid black;
+}
+
+#image_panier{  
+    width: 15%;
+    height: 5em;
+    margin: 1em 0em 1em 1em;
+}
+
+#div_title{
+    width: 50%;
+    height: 5em;
+    margin: 1em 0em 1em 2em;
+    border: 1px solid black;
+}
+
+.price_produit{ 
+    float: right;
+    margin: 0em 2em 8em 0em; 
+}
+/*////////// page panier parti recap ////////////*/
+#asideRecap{
+    float: right;
+    border-radius: 1em;
+    background:white;
+    width: 35%;
+    height: 10em;
+    margin-right: 1em;
+    border:1px solid rgba(161, 160, 160, 0.7);
+    box-shadow: 5px 5px 5px rgba(161, 160, 160, 0.7);
+}
+
+#nbTotalArticle{
+    color:red;
+}
+
+#recap{
+    height: 10em;
+}
+
+#commande{
+  display: block;
+  margin: auto; 
+}
+
+#totalPrice{
+    padding-top: 1em;
+    height: 5em;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;   
+}
+
+/*=========== formulaire============*/
+#formulaire_commande{
+    border-radius: 1em;
+    background:white;
+    height: 16em;
+    display: none;
+    padding: 0.1em 1em 0em 1em;
+    
+    border:1px solid rgba(161, 160, 160, 0.7);
+    box-shadow: 5px 5px 5px rgba(161, 160, 160, 0.7);
+}
+
+#close_formulaire{
+    width: 1.2em;
+    height: 1.2em;
+    background:rgb(196, 7, 7);
+    padding-left: 0.1em;
+    padding-bottom: 1em;
+    float: right;
+    border-radius: 0.2em;
+}
+#div_input_ville,#div_input_address,#div_input,#div_input_mail{
+    margin-bottom: 1em;
+}
+
+#nom{
+    float: right;
+    width: 7em;   
+    position: absolute;
+}
+
+#prenom{
+    width: 6em;
+    margin-right: 2em;  
+}
+
+#adresse{
+    width: 20em;
+}
+
+#ville{
+    width: 9em;
+    margin-right: 4em;
+}
+
+#code_postal{
+    width: 4em;
+    margin-right: 2em;
+}
+
+#envoi{
+    display: block;
+    margin:auto;
+}
+/*=============== nav responsive========*/
+
+.menu{
+    display: none;
+    float: right;
+    margin-top: -5em;
+    margin-right: 2em;
+}
+.bloc_detail_liens {
+    border: 1px solid black;
+    border-radius: 0.5em;
+    background:white;
+    padding-top: 0.5em;
+    padding-left: 0.5em;
+    width: 9em;
+    list-style: none;
+    position: relative
+}
+
+.liens{
+    border-top: 4px solid grey;
+    border-bottom: 4px solid grey;
+    width: 1.5em;
+    height: 0.5em;
+    margin-left: 0.5em;
+}
+
+.liste_menu{
+   padding: 0em;
+    padding-top: 0.7em;
+    border: 1px solid black;
+    width: 2.4em;
+    height: 1.6em;
+    border-radius: 0.5em;
+    position: relative;
+    list-style: none;
+}
+   
+    .detail_liens {
+      margin-bottom: 0.4em;
+       }
+    
+    .menu ul li a{
+    text-decoration : none;
+    }
+    
+    .menu ul ul {
+    position: absolute;
+    margin-left: -6em;
+    margin-top: 0.6em;
+    visibility: hidden;
+    }
+    
+    .menu ul:hover ul{
+    visibility: visible;
+    }
+   /*======== fin nav responsive========*/
+   /*====pop_up ====**/
+   #pop_up{
+       width: 40%;
+       height: 5em;
+       background:white;
+       border-radius: 0.5em;
+       padding-top: 1em;
+       position: absolute;
+       z-index: 1;
+       margin: 12em 15em 0em 18em;
+       display: none;
+       border: 1px solid black;
+       border:1px solid rgba(161, 160, 160, 0.7);
+       box-shadow: 5px 5px 5px rgba(161, 160, 160, 0.7);
+   }
+
+    #divText{
+        width:100%;
+        text-align: center;
+    }
+
+    #div_btn{
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        margin-top: 1em;
+    }
+
+   #btn_retour_accueil{
+      border-radius: 0.5em;
+      background:rgb(199, 178, 195);
+   }
+
+   #btn_finish{
+    border-radius: 0.5em;
+    background:rgb(199, 178, 195);
+ }
+
+/*=================fin pop up=======================*/
+
+#div_input_mail{
+    border: 1px solid red;
+}
+@media screen and (min-width:349px) and (max-width:600px){
+/*nav responsive*/
+    .menu{
+        display: block;    
+    }
+
+/* page d'accueil*/
+
+    body{
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    
+    #conteneur{
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
+    nav{
+        display: none;
+    }
+
+    #vCam0,#vCam1,#vCam2,#vCam3,#vCam4{
+        width: 100%;
+        margin: 1em;
+        width: 90%;
+    }
+
+/*page produit*/
+
+    #conteneur_produit{
+        width: 95%;
+        padding-left: 0.5em;
+    }
+
+    #title{
+        width:60%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #img_produit{
+        width: 100%;
+        margin-left: 0em;
+    }
+
+    #prix_produit{
+        margin-left: 80%;
+        margin-top: 1em;
+    }
+
+    #choix_option{
+        margin-left: 0.5em;
+        margin-top: 31em;
+    }
+
+    #description_produit{
+        display: none;
+    }
+
+    #button{
+        margin-top: 4em;
+        margin-bottom: 6em;
+    }
+
+    #pop_up{
+        width: 95%;
+        margin-left: 0em;
+        margin-right: 0em;
+        
+        border:1px solid rgba(161, 160, 160, 0.7);
+        box-shadow: 5px 5px 5px rgba(161, 160, 160, 0.7);
+    }
+
+    #div_btn{
+        display: flex;
+        justify-content: space-around;
+        width: 100%;
+        margin-top: 1em;
+    }
+
+    /*page panier*/
+
+    #commande_panier{
+        display: flex;
+        flex-direction: column;
+        padding-right: 2em;
+    }
+    
+    .div_article{
+        width: 100%;
+        height: 8em;
+    }
+
+    #asideRecap{
+       position: absolute;
+        width: 91%;
+        margin-left: 1em;
+    }
+
+    .titre_detail_panier{
+        width: 100%;
+       padding-left: 1.5em;
+       text-align: left;
+       margin-top: 11.5em;
+    } 
+    
+    #recap{
+        width: 100%;
+        margin-right: 2em;
+    }
+    
+    #formulaire_commande{
+       width: 94.5%;
+        margin-bottom: 15em;
+    }
+    
+    #image_panier{
+        margin-top: 2em;
+        width: 4em;
+        height: 4em;
+    }
+
+    #description_produit_panier{
+        padding-left: 0.5em;
+    }
+}
+
+@media screen and ( min-width:601px)and (max-width:900px){
+   
+    nav{
+        display: none;
+    }
+
+    /*page panier*/
+    #commande_panier{
+        display: flex;
+        flex-direction: column;
+        padding-right: 2em;
+    }
+
+    .div_article{
+        width: 100%;
+        height: 8em;
+    }
+
+    #asideRecap{
+        position: absolute;
+        width: 93%;
+        margin-left: 1em;
+    }
+
+    .titre_detail_panier{
+        width: 100%;
+        padding-left: 1.5em;
+        text-align: left;
+        margin-top: 11.5em;
+    } 
+
+    #recap{
+        width:100%;
+        margin-right: 2em;
+    }
+
+    #formulaire_commande{
+        width: 95.5%;
+        margin-bottom: 15em;
+        border:1px solid rgba(161, 160, 160, 0.7);
+        box-shadow: 5px 5px 5px rgba(161, 160, 160, 0.7);
+    }
+
+    #image_panier{
+        margin-top: 2em;
+        width: 4em;
+        height: 4em;
+    }
+
+    #description_produit_panier{
+        padding-left: 0.5em;
+    }
+
+    /*nav responsive*/
+    .menu{
+        display: block;  
+    }
+   /* fin nav responsive*/ 
+
+
+}
+
