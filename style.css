@@ -455,7 +455,6 @@ price{
         width:5em;
         visibility: hidden;
         position:absolute;
-        padding-right:-1em;
         margin-left:-5em;
         z-index:2;
     }
