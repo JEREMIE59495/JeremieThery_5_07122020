@@ -8,10 +8,7 @@ request.send();
 request.onload = function () {
     var fileData = request.response;
     var nbProduit = fileData.length;
-    console.log(fileData)
-  console.log(nbProduit)
     for(var i=0 ; i<nbProduit ; i ++){
-      console.log(fileData)
       //Création d'un aside
       var vCamAside = document.createElement('aside');       
       vCamAside.id ='vCam' +i;
@@ -31,7 +28,6 @@ request.onload = function () {
       var imageUrl = document.createElement('img');
       imageUrl.id = 'image' + i;
       imageUrl.src = fileData[i].imageUrl;
-      //imageUrlTitle = '';                  // voir pour mettre le nom du produit
       document.getElementById('vCam' + i).appendChild(imageUrl);
       
       //Création d'un article

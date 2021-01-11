@@ -1,14 +1,15 @@
 var retour = JSON.parse(localStorage.getItem('panier'));
 var response = [JSON];
 var totalPannierElt = 0 ;
-
+var deleteDivElt;
+var bloc ;
+var ind = 0; // indentation des blocs articles
+var z = -1;   // lentille
 
 // Envoi des id sur le formulaire 
 var product_id = []
 product_id = JSON.parse(localStorage.getItem('product_id')) || []; 
 localStorage.setItem('product_id', JSON.stringify(product_id));  
-    
-//console.log(product_id)
 
 //Création du bloc page
 var ajoutElt = document.createElement('aside');
@@ -21,10 +22,6 @@ titleDetailElt.setAttribute('class','titre_detail_panier');
 var text = "Détail de votre panier";
 document.getElementById('commande_panier').appendChild(titleDetailElt );
 document.querySelector('h2').innerHTML = text;
-
-  var bloc ;
-  var ind = 0; // indentation des blocs articles
-  var z = -1;   // lentille
 
 for(var i = 0; i<retour.length; i+=2){ 
   fetch('http://localhost:3000/api/cameras/' + retour[i] )
@@ -50,7 +47,7 @@ for(var i = 0; i<retour.length; i+=2){
       var descriptionElt = document.createElement ('div');
       descriptionElt.id = 'description_produit_panier';
       newBloc.appendChild(descriptionElt);
-
+    
     //Insertion du titre
       var titleElt = document.createElement('p');
       titleElt.id = 'nom_produit_panier';
@@ -61,18 +58,27 @@ for(var i = 0; i<retour.length; i+=2){
       var optionElt = document.createElement('p');
       optionElt.id = 'option_produit' + ind;
       if(data.lenses[retour[z]] === undefined){
-          data.lenses[retour[z]] = 'Aucune'
+          data.lenses[retour[z]] = 'Aucune'   
       }
-      optionElt.textContent = 'Option lentille choisi : '+ data.lenses[retour[z]];
+      optionElt.innerHTML = 'Option lentille choisi : '+'<span style="font-weight: bold ; font-style:italic ; color:blue;">'+ data.lenses[retour[z]]+ '</span>';
       descriptionElt.appendChild(optionElt);
-
+     
     //Insertion du prix
       var priceElt = document.createElement('p');
       priceElt.id = 'price_produit_panier'+ind;
       priceElt.setAttribute('class','price_produit');
       priceElt.textContent = data.price /100+' €';
       descriptionElt.appendChild(priceElt);
-    
+      
+    //Création btn supression
+      var deleteDivElt = document.createElement('button');
+      deleteDivElt.id = 'div_delete';
+      priceElt.appendChild(deleteDivElt)
+      deleteTexteElt = document.createTextNode('Supprimer');
+      deleteDivElt.setAttribute('onclick',"deleteDiv(" + ind + ")");
+      deleteDivElt.appendChild(deleteTexteElt);
+      console.log(deleteDivElt)
+      
     //recuperation des prix
       var nbTotalArticle = retour.length/2;
       totalPannierElt += data.price;
@@ -83,14 +89,15 @@ for(var i = 0; i<retour.length; i+=2){
       }
       totalPrice.innerHTML =  'Vous avez '+'<span style="color:red ; font-size:1.2em">' + nbTotalArticle +'</span>'+ art + '</br>' +' pour un total de : ' +'<span style="color:red ; font-size:1.2em">'+totalPannierElt /100 +'</span>'+' €';
     
-  //envoi des id du paniers dans le tableau
-    product_id.push(data._id)
-     
-      
+    //envoi des id du paniers dans le tableau
+      product_id.push(data._id,)
+
+      var totalConfirmation=[]
+      totalConfirmation.push(totalPannierElt)
+      localStorage.setItem('totalConfirmation', JSON.stringify(totalConfirmation));
   })
 }                                                   
 
-  
 //Bloc récapitulatif
   var asideRecapElt = document.createElement('aside');
   asideRecapElt.id = 'asideRecap' ;
@@ -120,6 +127,4 @@ for(var i = 0; i<retour.length; i+=2){
   var btnText = document.createTextNode('Commande');
   btn.appendChild(btnText);
 
-
-  // push pour confirmation
 

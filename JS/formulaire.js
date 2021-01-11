@@ -1,3 +1,5 @@
+var allCommande = [];
+
 //Création de div pour formulaire
   var formElt = document.createElement('form');
   formElt.id = 'formulaire_commande' ;
@@ -73,11 +75,11 @@
   document.getElementById('div_input_ville').appendChild(cityElt);
   cityElt.setAttribute("required", "");
 
-//div ville et code postale
+//div email
   var divInputMail = document.createElement('div');
   divInputMail.id = 'div_input_mail';
   document.getElementById('formulaire_commande').appendChild(divInputMail);
-   
+
 //input mail
   var mailElt = document.createElement('input');
   mailElt.id ='mail';
@@ -96,7 +98,7 @@
 // ecoute le click sur le btn commande pour afficher le form
   commande.addEventListener('click',openDoc);
   closeForm.addEventListener('click', closeDoc);
-
+  
 // Contrôle du formulaire
   nameElt = document.forms["formulaire_commande"]["prenom"].value;
   surnameElt = document.forms["formulaire_commande"]["nom"].value;
@@ -104,46 +106,47 @@
   cityElt = document.forms["formulaire_commande"]["ville"].value;
   mailElt = document.forms["formulaire_commande"]["mail"].value;
 
-  //var formValid = document.getElementById('envoi');
-  var inputValid = /[a-z,A-Z]/;
-  var cpValid = /[0-9]/;
+//var formValid = document.getElementById('envoi');
+  var inputValid = /[0-9]/; 
+  var cpValid = /[a-z,A-Z]/;
   var mailValid =/[@]/;
   var mailbValid =/[.]/;
   var sendOrder=[];
-  var test = true;
+
 
 function validation(event){
+  var test = true;
   var firstName = document.getElementById('nom').value;
   var lastName= document.getElementById('prenom').value;
   var address = document.getElementById('adresse').value;
   var city = document.getElementById('ville').value;
   var email = document.getElementById('mail').value;
-  console.log(test)
-  if (inputValid.test(prenom.value) == false){
+ 
+  if (inputValid.test(prenom.value) == true){
     alert('Votre prénom ne doit contenir que des lettres');
     test = false;
       event.preventDefault();
   }
 
-  if (inputValid.test(nom.value) == false){
+  if (inputValid.test(nom.value) == true){
     alert('Votre nom ne doit contenir que des lettres')
     test = false;
       event.preventDefault();
   } 
 
-  if (inputValid.test(ville.value) == false){
+  if (inputValid.test(ville.value) == true){
     alert('entrez une ville valide')
     test = false;
       event.preventDefault();
   }
 
-  if (cpValid.test(code_postal.value) == false){
+  if (cpValid.test(code_postal.value) == true){
     alert('entrez un code postale valide')
     test = false;
       event.preventDefault();
   }
 
-  if (mailValid.test(mail.value) == false){
+  if (mailValid.test(mail.value)== false){
     alert('entrez un mail valide "@" manquant')
     test = false;
       event.preventDefault();
@@ -154,65 +157,56 @@ function validation(event){
     test = false;
     event.preventDefault();
   }
-  console.log(test)
+
   if(test==true){
- 
-  const data ={
 
-    contact : {
-      firstName:firstName,
-      lastName:lastName,
-      address: address,
-      city:city,
-      email:email,
-    },
-     products:product_id
-   
-  };
+    const data ={
 
-  const dataToSend = JSON.stringify(data)
-  //envoiForm(dataToSend)
-  
+      contact : {
+        firstName:firstName,
+        lastName:lastName,
+        address: address,
+        city:city,
+        email:email,
+      },
+        products:product_id 
+    };
 
-  
- fetch ('http://localhost:3000/api/cameras/order', {
-  method: 'POST',
-  headers: {
-  'Content-type': 'application/json ',
-  },
-  body: dataToSend,
-})
-.then(response =>  {
-//console.log(response.json())
-  return response.json();
-})
-.then(jsonResponse => {
-  renderResponse(jsonResponse)
-  //console.log(jsonResponse)
-})
-  //document.location.href = 'confirmation.html';
-  
-.catch(err => console.log(err));
-return;
+    const dataToSend = JSON.stringify(data)
+
+    fetch ('http://localhost:3000/api/cameras/order', {
+      method: 'POST',
+      headers: {
+      'Content-type': 'application/json ',
+      },
+      body: dataToSend,
+    })
+      .then(response =>  {
+        return response.json();
+      })
+      .then(jsonResponse => {
+        renderResponse(jsonResponse)
+      })
+      alert ('Vous allez être redirigé')
+      .catch(err => console.log(err));
+     
+  }
+   if(test==true){
+   return;
   }
 }
 
 // on récupère les données de la réponse pour les placer en paramètre de l'url
 // pour les afficher sur la page de confirmation
 const renderResponse = order => {
- 
-  //sendOrder.push(renderResponse);
-  localStorage.setItem('confirm', JSON.stringify(order));
-  
 
-  const firstName = order.contact.firstName; console.log(firstName);
-  //const price = order.total;
-  const idOrder = order.orderId;console.log(idOrder);
+  const firstName = order.contact.firstName; 
+  const idOrder = order.orderId;
+   
+  var newCommande = {firstName , idOrder}; console.log(newCommande);
+  allCommande.push(newCommande);
+  localStorage.setItem('allCommande', JSON.stringify(newCommande)); 
 
- 
- //alert('ici2')
- const urlParams = `confirmation.html?id=${idOrder}&name=${firstName}`;
-  window.open(urlParams, "_self");
- // document.location.href = 'confirmation.html';
- 
+  const urlParams = `confirmation.html?id=${idOrder}&name=${firstName}`;
+  window.open(urlParams,"_self");
 }

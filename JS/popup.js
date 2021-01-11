@@ -1,3 +1,6 @@
+
+///////////////////////////////// pop-up page produit///////////////////////
+
 //Création de la div pour le pop up
   var popElt = document.createElement('div');
   popElt.id ='pop_up';
@@ -33,3 +36,4 @@
 //Ecoute du click sur les boutons
   btnRetour.addEventListener('click',retourAccueil);
   btnFinish.addEventListener('click',confirmPanier);
+
