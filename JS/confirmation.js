@@ -23,7 +23,7 @@
   if (allCommande == null){
     var message1 = document.createElement('p');
     message1.id = 'message_aucune_commande' ;
-    message1.innerHTML =' aucune commande en cours ';
+    message1.innerHTML =' Aucune commande en cours ';
     document.getElementById('conteneur_confirmation').appendChild(message1)
   }
 

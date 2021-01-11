@@ -450,13 +450,16 @@ price{
         font-weight:bold;
         text-decoration: underline;
     }
-/*============ infobulle =================*/
+/*============ infobulle panier =================*/
     .bulle_panier{
         width:5em;
         visibility: hidden;
         position:absolute;
         margin-left:-5em;
         z-index:2;
+    }
+    #menu_panier{
+        height:1em;
     }
 
     #menu_panier:hover .bulle_panier{
@@ -477,6 +480,34 @@ price{
         border-style: solid;
         border-color: transparent transparent rgb(248, 248, 248) transparent;
     }
+    /*============ infobulle commande =================*/
+    .bulle_commande{
+        width:5em;
+        visibility: hidden;
+        position:absolute;
+       /* margin-left:-5em;*/
+        z-index:2;
+    }
+
+    #menu_commande:hover .bulle_commande{
+        width:6em;
+        padding:0.5em;
+        border-radius:0.5em;
+        background:rgb(248,248,248);
+        visibility: visible;
+        position:relative;
+    }
+
+    .bulle_commande::after  {
+        content: "";
+        position: absolute;
+        margin-top:-3.7em;
+        margin-left: 0em;
+        border-width: 0.5em;
+        border-style: solid;
+        border-color: transparent transparent rgb(248, 248, 248) transparent;
+    }
+
 
    /*====pop_up produit ====**/
 
@@ -691,6 +722,39 @@ price{
         margin-left:1em;
         margin-right:1em;
     }
+    /*============ infobulle panier =================*/
+    .bulle_panier{
+        margin-left:-11em;
+        margin-top:-2em;
+        z-index:0;
+    }
+
+    #menu_panier:hover .bulle_panier{
+        border : 1px solid black;
+    }
+
+    .bulle_panier::after  {
+        margin-top:-1.8em;
+        margin-left: 6.5em;
+        border-color: transparent  transparent  transparent black;
+    }
+    /*============ infobulle commande =================*/
+    .bulle_commande{
+        margin-left:-8em;
+        margin-top:-1.5em; 
+        z-index:2; 
+    }
+   
+    #menu_commande:hover .bulle_commande{
+        border : 1px solid black;
+    }
+
+    .bulle_commande::after  {
+        margin-top:-2.2em;
+        margin-left: 2.4em;
+        border-color: transparent transparent  transparent black;
+    }
+
 }
 @media screen and ( min-width:410px)and (max-width:600px){
   

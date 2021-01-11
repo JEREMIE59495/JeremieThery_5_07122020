@@ -31,11 +31,9 @@ if(retour == null){
 if (retour == null){
   var message= document.createElement('p');
   message.id = 'message_panier_vide' ;
-  message.innerHTML =' votre panier est vide ';
+  message.innerHTML =' Votre panier est vide ';
   document.getElementById('conteneur_panier').appendChild(message)
-}
-
-
+}else{
 
 for(var i = 0; i<retour.length; i+=2){ 
   fetch('http://localhost:3000/api/cameras/' + retour[i] )
@@ -111,7 +109,7 @@ for(var i = 0; i<retour.length; i+=2){
   })
   .catch(err => console.log(err));
 }                                                   
-
+}
 //Bloc récapitulatif
   var asideRecapElt = document.createElement('aside');
   asideRecapElt.id = 'asideRecap' ;

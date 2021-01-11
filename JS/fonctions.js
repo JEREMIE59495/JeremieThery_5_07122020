@@ -43,13 +43,33 @@ function deleteDiv(ind){
   }
   document.location.reload()
 }
-var retour = JSON.parse(localStorage.getItem('panier'));
 
 
 ///////////////////////////////// info bulle menu /////////////////////
+//Info bulle panier
+var retour = JSON.parse(localStorage.getItem('panier'));
 
+  if(retour == null){
+    var resultPanier ='0'
+  }else if(retour !== null){
+    var resultPanier = retour.length/2
+  }
 
-var bullePanier = document.createElement('p');
-bullePanier.setAttribute('class','bulle_panier')
-bullePanier.innerHTML=' vous avez '+"<span style='color:red ; font-weight:bold'>"+ retour.length/2 +"</span>"+' article(s) dans votre panier.';
-document.getElementById('menu_panier').appendChild(bullePanier);
+  var bullePanier = document.createElement('p');
+  bullePanier.setAttribute('class','bulle_panier')
+  bullePanier.innerHTML=' Vous avez '+"<span style='color:red ; font-weight:bold'>"+ resultPanier +"</span>"+' article(s) dans votre panier.';
+  document.getElementById('menu_panier').appendChild(bullePanier);
+
+//info bull commande
+var allCommande = JSON.parse(localStorage.getItem('allCommande'));
+  if(allCommande == null){
+    var resultat = '0'
+  }else if(allCommande != null){
+    var resultat = '1'
+  }
+
+  var bulleCommande = document.createElement('p');
+  bulleCommande.setAttribute('class','bulle_commande')
+  bulleCommande.innerHTML=' Vous avez '+"<span style='color:red ; font-weight:bold'>"+ resultat +"</span>"+' commande en cours.';
+  document.getElementById('menu_commande').appendChild(bulleCommande);
+
