@@ -72,5 +72,8 @@ request.onload = function () {
       btn.style.paddingLeft = '0.2em';
       btn.style.float = 'right';
       btn.style.marginRight = '1em';  
+
   };
 }        
+
+

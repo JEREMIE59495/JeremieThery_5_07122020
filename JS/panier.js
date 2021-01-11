@@ -23,6 +23,20 @@ var text = "Détail de votre panier";
 document.getElementById('commande_panier').appendChild(titleDetailElt );
 document.querySelector('h2').innerHTML = text;
 
+// message en cas de panier vide
+if(retour == null){
+  titleDetailElt.style.display ='none';
+}
+
+if (retour == null){
+  var message= document.createElement('p');
+  message.id = 'message_panier_vide' ;
+  message.innerHTML =' votre panier est vide ';
+  document.getElementById('conteneur_panier').appendChild(message)
+}
+
+
+
 for(var i = 0; i<retour.length; i+=2){ 
   fetch('http://localhost:3000/api/cameras/' + retour[i] )
   .then(response => response.json())
@@ -77,7 +91,6 @@ for(var i = 0; i<retour.length; i+=2){
       deleteTexteElt = document.createTextNode('Supprimer');
       deleteDivElt.setAttribute('onclick',"deleteDiv(" + ind + ")");
       deleteDivElt.appendChild(deleteTexteElt);
-      console.log(deleteDivElt)
       
     //recuperation des prix
       var nbTotalArticle = retour.length/2;
@@ -96,6 +109,7 @@ for(var i = 0; i<retour.length; i+=2){
       totalConfirmation.push(totalPannierElt)
       localStorage.setItem('totalConfirmation', JSON.stringify(totalConfirmation));
   })
+  .catch(err => console.log(err));
 }                                                   
 
 //Bloc récapitulatif
@@ -126,5 +140,4 @@ for(var i = 0; i<retour.length; i+=2){
   document.getElementById('recap').appendChild(btn);
   var btnText = document.createTextNode('Commande');
   btn.appendChild(btnText);
-
 

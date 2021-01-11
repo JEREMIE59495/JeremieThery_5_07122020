@@ -24,9 +24,7 @@ header{
     height: 5em;
     margin-left: 1em;
 }
-allCommande{
-    color:red;
-}
+
 .search{
     float: right;
     display: flex;  
@@ -81,7 +79,6 @@ article{
 }
 
 price{
-    /*border: 1px solid black;*/
     padding: 0.2em;
     margin-left: 1em;
 }
@@ -249,6 +246,17 @@ price{
     text-align: right;
 }
 
+#message_panier_vide{
+    width:100%;
+    font-size:2em;
+    text-align: center;
+}
+
+#message_aucune_commande{
+    width:100%;
+    font-size:2em;
+    text-align: center;
+}
 /*////////// page panier parti recap ////////////*/
 
 #asideRecap{
@@ -396,7 +404,7 @@ price{
     list-style: none;
 }
    
-    .detail_liens {
+    #menu_accueil , #menu_commande, #menu_panier {
       margin-bottom: 0.4em;
       margin-left: auto;
       margin-right: auto;
@@ -437,13 +445,38 @@ price{
         border-bottom-left-radius: 0;
     }
 
-    li:hover{
-        text-decoration: underline;
-    }
-
     .entete ul li a:hover,.entete_produit ul li a:hover{
         color:rgb(63, 63, 248);
         font-weight:bold;
+        text-decoration: underline;
+    }
+/*============ infobulle =================*/
+    .bulle_panier{
+        width:5em;
+        visibility: hidden;
+        position:absolute;
+        padding-right:-1em;
+        margin-left:-5em;
+        z-index:2;
+    }
+
+    #menu_panier:hover .bulle_panier{
+        width:9em;
+        padding:0.5em;
+        border-radius:0.5em;
+        background:rgb(248,248,248);
+        visibility: visible;
+        position:relative;
+    }
+
+    .bulle_panier::after  {
+        content: "";
+        position: absolute;
+        margin-top:-3.7em;
+        margin-left: 4em;
+        border-width: 0.5em;
+        border-style: solid;
+        border-color: transparent transparent rgb(248, 248, 248) transparent;
     }
 
    /*====pop_up produit ====**/

@@ -36,4 +36,3 @@
 //Ecoute du click sur les boutons
   btnRetour.addEventListener('click',retourAccueil);
   btnFinish.addEventListener('click',confirmPanier);
-

@@ -6,6 +6,7 @@
   divConfirmation.id = 'div_confirmation';
   document.getElementById('conteneur_confirmation').appendChild(divConfirmation);
 
+
 //Création du titre de confirmation
   var titreConfirmation = document.createElement('p');
   titreConfirmation.setAttribute('class','texte_confirmation');
@@ -14,21 +15,31 @@
   document.getElementById('div_confirmation').appendChild(titreConfirmation);
   document.getElementById('titre_confirmation').appendChild(confirmationtElt);
 
+// message en cas decommande vide
+  if(allCommande == null){
+    titreConfirmation.style.display ='none';
+  }
+
+  if (allCommande == null){
+    var message1 = document.createElement('p');
+    message1.id = 'message_aucune_commande' ;
+    message1.innerHTML =' aucune commande en cours ';
+    document.getElementById('conteneur_confirmation').appendChild(message1)
+  }
+
 // insertion texte avec numéro de commande
   var numCommande = document.createElement('p');
   numCommande.id = 'texte';
   numCommande.setAttribute('class','texte_confirmation');
   document.getElementById('div_confirmation').appendChild(numCommande);
-  var textoConfirm = document.createTextNode('Nous vous remercions pour votre commande n°' +"<font color='red'>"  +allCommande.idOrder+ "</font>");
-  document.getElementById('texte').appendChild(textoConfirm);
+  numCommande.innerHTML ='Nous vous remercions pour votre commande n° ' +"<span style=' font-weight: bold'>"  +allCommande.idOrder+ "</span>";
 
 //insertion texte avec prix
   var prixTotalElt = document.createElement('p');
   prixTotalElt.id = 'somme';
   prixTotalElt.setAttribute('class','texte_confirmation');
   document.getElementById('div_confirmation').appendChild(prixTotalElt);
-  var prixTotalTexte = document.createTextNode ('Prix total de votre commande : '+ totalConfirmation[0]/100 + ' €');
-  document.getElementById('somme').appendChild(prixTotalTexte);
+  prixTotalElt.innerHTML = 'Prix total de votre commande : '+'<span style= "color:red">' + totalConfirmation[0]/100 + '</span>'+' €';
 
 //Remerciement
   var remerciement = document.createElement('p');

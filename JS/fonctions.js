@@ -43,5 +43,13 @@ function deleteDiv(ind){
   }
   document.location.reload()
 }
+var retour = JSON.parse(localStorage.getItem('panier'));
 
 
+///////////////////////////////// info bulle menu /////////////////////
+
+
+var bullePanier = document.createElement('p');
+bullePanier.setAttribute('class','bulle_panier')
+bullePanier.innerHTML=' vous avez '+"<span style='color:red ; font-weight:bold'>"+ retour.length/2 +"</span>"+' article(s) dans votre panier.';
+document.getElementById('menu_panier').appendChild(bullePanier);
