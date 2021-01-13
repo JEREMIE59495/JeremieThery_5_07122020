@@ -45,12 +45,8 @@ function deleteDiv(ind){
   document.location.reload()
 }
 
-
 function suppPanier(){
-  var panierElt = JSON.parse(localStorage.getItem('panier')) 
-  //supression dans le panier du tableau du panier
-    panierElt.splice(0);
-    localStorage.setItem('panier', JSON.stringify(panierElt)) 
+  delete localStorage.panier;
 }
 
 ///////////////////////////////// info bulle menu /////////////////////

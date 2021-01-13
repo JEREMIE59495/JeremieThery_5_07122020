@@ -27,7 +27,6 @@ document.querySelector('h2').innerHTML = text;
 if(retour == null){
   titleDetailElt.style.display ='none';
 }
-
 if (retour == null){
   var message= document.createElement('p');
   message.id = 'message_panier_vide' ;
@@ -63,7 +62,7 @@ for(var i = 0; i<retour.length; i+=2){
     //Insertion du titre
       var titleElt = document.createElement('p');
       titleElt.id = 'nom_produit_panier';
-      titleElt.textContent = data._id;
+      titleElt.textContent = data.name;
       descriptionElt.appendChild(titleElt);
 
     //Insertion de l'option
@@ -114,7 +113,9 @@ for(var i = 0; i<retour.length; i+=2){
   var asideRecapElt = document.createElement('aside');
   asideRecapElt.id = 'asideRecap' ;
   document.getElementById('commande_panier').appendChild(asideRecapElt);
-
+  if(retour==null){
+    asideRecapElt.style.display ='none';
+  }
 //Titre du bloc
   var titleRecapElt = document.createElement('h2');
   titleRecapElt.id='titreRecap';
@@ -139,3 +140,4 @@ for(var i = 0; i<retour.length; i+=2){
   var btnText = document.createTextNode('Commande');
   btn.appendChild(btnText);
 
+  

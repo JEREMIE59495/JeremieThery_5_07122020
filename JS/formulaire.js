@@ -95,7 +95,6 @@ var allCommande = [];
   btnEnvoieForm.appendChild(btnEnvoieFormText);
   btnEnvoieForm.setAttribute('onclick','validation(event)');
  
-console.log
 // ecoute le click sur le btn commande pour afficher le form
   commande.addEventListener('click',openDoc);
   closeForm.addEventListener('click', closeDoc);
