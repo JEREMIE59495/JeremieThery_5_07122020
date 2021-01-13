@@ -186,8 +186,8 @@ function validation(event){
       .then(jsonResponse => {
         renderResponse(jsonResponse)
       })
-      alert ('Vous allez être redirigé');
-      .catch(err => console.log(err));
+      alert ('Vous allez être redirigé')
+      .catch(err => console.log(err))
      
   }
    if(test==true){
