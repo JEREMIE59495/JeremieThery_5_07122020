@@ -38,7 +38,7 @@ request.onload = function () {
       //Création du bloc description
       var description = document.createElement('description');
       description.id = 'description' + i;
-      description.Title = 'description du produit' + i ; //voir pour mettre le nom de l'appareil décrit
+      description.Title = 'description du produit' + i ; 
   
       //Ajout de l'élèment et envoi sur la page html
       document.getElementById('article' + i).appendChild(description);
@@ -52,7 +52,7 @@ request.onload = function () {
       //Ajout de l'élèment et intégration sur la page html
       document.getElementById('vCam' + i).appendChild(price);
       var priceText = document.createTextNode(fileData[i].price/100 +' €');
-      price.appendChild(priceText ); 
+      price.appendChild(priceText); 
 
       //Création bouton détail
       let btn = document.createElement('button');

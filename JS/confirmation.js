@@ -18,13 +18,10 @@
 // message en cas decommande vide
   if(allCommande == null){
     titreConfirmation.style.display ='none';
-  }
-
-  if (allCommande == null){
     var message1 = document.createElement('p');
     message1.id = 'message_aucune_commande' ;
     message1.innerHTML =' Aucune commande en cours ';
-    document.getElementById('conteneur_confirmation').appendChild(message1)
+    document.getElementById('conteneur_confirmation').appendChild(message1);
   }
 
 // insertion texte avec numéro de commande
@@ -52,7 +49,7 @@
   //lien retour a l'accueil  
   var accueil = document.createElement('button');
   accueil.id='retour_accueil_btn';
-  accueil.setAttribute('onclick',"retourAccueil()")
+  accueil.setAttribute('onclick',"retourAccueil()");
   document.getElementById('div_confirmation').appendChild(accueil);
   var accueilText = document.createTextNode('Retourner à l\'accueil');
-  document.getElementById('retour_accueil_btn').appendChild(accueilText)
+  document.getElementById('retour_accueil_btn').appendChild(accueilText);

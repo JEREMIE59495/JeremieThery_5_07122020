@@ -54,13 +54,13 @@ function suppPanier(){
 var retour = JSON.parse(localStorage.getItem('panier'));
 
   if(retour == null){
-    var resultPanier ='0'
+    var resultPanier ='0';
   }else if(retour !== null){
-    var resultPanier = retour.length/2
+    var resultPanier = retour.length/2;
   }
 
   var bullePanier = document.createElement('p');
-  bullePanier.setAttribute('class','bulle_panier')
+  bullePanier.setAttribute('class','bulle_panier');
   bullePanier.innerHTML=' Vous avez '+"<span style='color:red ; font-weight:bold'>"+ resultPanier +"</span>"+' article(s) dans votre panier.';
   document.getElementById('menu_panier').appendChild(bullePanier);
 

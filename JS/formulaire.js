@@ -6,23 +6,23 @@ var allCommande = [];
   document.getElementById('asideRecap').appendChild(formElt);
 
 //titre Formulaire
-  var titleFormElt = document.createElement('h3')
-  titleFormElt.id = 'titre_formulaire'
-  var titleFormText = document.createTextNode('Vos coordonnées')
-  document.getElementById('formulaire_commande').appendChild(titleFormElt)
-  document.getElementById('titre_formulaire').appendChild(titleFormText)
+  var titleFormElt = document.createElement('h3');
+  titleFormElt.id = 'titre_formulaire';
+  var titleFormText = document.createTextNode('Vos coordonnées');
+  document.getElementById('formulaire_commande').appendChild(titleFormElt);
+  document.getElementById('titre_formulaire').appendChild(titleFormText);
   
 // bouton fermeture formulaire
   var closeForm = document.createElement('button');
   closeForm.id = 'close_formulaire';
   var closeFormText = document.createTextNode('X');
   document.getElementById('titre_formulaire').appendChild(closeForm);
-  document.getElementById('close_formulaire').appendChild(closeFormText)
+  document.getElementById('close_formulaire').appendChild(closeFormText);
  
 //div nom prénom
   var divInputName = document.createElement('div');
   divInputName.id = 'div_input';
-  document.getElementById('formulaire_commande').appendChild(divInputName)
+  document.getElementById('formulaire_commande').appendChild(divInputName);
  
 //input prénom
   var nameElt = document.createElement('input');
@@ -57,7 +57,7 @@ var allCommande = [];
 //div ville et code postale
   var divInputVille = document.createElement('div');
   divInputVille.id = 'div_input_ville';
-  document.getElementById('formulaire_commande').appendChild(divInputVille)
+  document.getElementById('formulaire_commande').appendChild(divInputVille);
     
 //input code postal
   var cpElt = document.createElement('input');
@@ -98,21 +98,20 @@ var allCommande = [];
 // ecoute le click sur le btn commande pour afficher le form
   commande.addEventListener('click',openDoc);
   closeForm.addEventListener('click', closeDoc);
-  
+  /*
 // Contrôle du formulaire
   nameElt = document.forms["formulaire_commande"]["prenom"].value;
   surnameElt = document.forms["formulaire_commande"]["nom"].value;
   addressElt = document.forms["formulaire_commande"]["adresse"].value;
   cityElt = document.forms["formulaire_commande"]["ville"].value;
   mailElt = document.forms["formulaire_commande"]["mail"].value;
+  */
 
-//var formValid = document.getElementById('envoi');
   var inputValid = /[0-9]/; 
   var cpValid = /[a-z,A-Z]/;
   var mailValid =/[@]/;
   var mailbValid =/[.]/;
   var sendOrder=[];
-
 
 function validation(event){
   var test = true;
@@ -129,31 +128,31 @@ function validation(event){
   }
 
   if (inputValid.test(nom.value) == true){
-    alert('Votre nom ne doit contenir que des lettres')
+    alert('Votre nom ne doit contenir que des lettres');
     test = false;
       event.preventDefault();
   } 
 
   if (inputValid.test(ville.value) == true){
-    alert('entrez une ville valide')
+    alert('entrez une ville valide');
     test = false;
       event.preventDefault();
   }
 
   if (cpValid.test(code_postal.value) == true){
-    alert('entrez un code postale valide')
+    alert('entrez un code postale valide');
     test = false;
       event.preventDefault();
   }
 
   if (mailValid.test(mail.value)== false){
-    alert('entrez un mail valide "@" manquant')
+    alert('entrez un mail valide "@" manquant');
     test = false;
       event.preventDefault();
   }
 
   if (mailbValid.test(mail.value) == false){
-    alert('entrez un mail valide ".fr .com"')
+    alert('entrez un mail valide ".fr .com"');
     test = false;
     event.preventDefault();
   }
@@ -187,7 +186,7 @@ function validation(event){
       .then(jsonResponse => {
         renderResponse(jsonResponse)
       })
-      alert ('Vous allez être redirigé')
+      alert ('Vous allez être redirigé');
       .catch(err => console.log(err));
      
   }
@@ -204,10 +203,10 @@ const renderResponse = order => {
   const firstName = order.contact.firstName; 
   const idOrder = order.orderId;
    
-  var newCommande = {firstName , idOrder}; console.log(newCommande);
+  var newCommande = {firstName , idOrder}; 
   allCommande.push(newCommande);
   localStorage.setItem('allCommande', JSON.stringify(newCommande)); 
-  btnEnvoieForm.addEventListener('click',suppPanier())
+  btnEnvoieForm.addEventListener('click',suppPanier());
   const urlParams = `confirmation.html?id=${idOrder}&name=${firstName}`;
   window.open(urlParams,"_self");
 }
