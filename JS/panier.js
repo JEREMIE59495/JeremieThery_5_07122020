@@ -63,7 +63,7 @@ for(var i = 0; i<retour.length; i+=2){
     //Insertion du titre
       var titleElt = document.createElement('p');
       titleElt.id = 'nom_produit_panier';
-      titleElt.textContent = data.name;
+      titleElt.textContent = data._id;
       descriptionElt.appendChild(titleElt);
 
     //Insertion de l'option

@@ -83,6 +83,11 @@ price{
     margin-left: 1em;
 }
 
+.bouton:hover{
+    font-weight: bold;
+    color:blue;
+}
+
 
 /*======== page produit ==========*/
 #conteneur_produit{
@@ -368,6 +373,20 @@ price{
     font-size: 1.3em;
 }
 
+#retour_accueil_btn{
+border:none;
+text-decoration: underline;
+}
+
+#retour_accueil_btn:hover{
+    font-weight:bold;
+    color:blue;
+}
+
+#retour_accueil_btn:focus{
+    outline:none;
+}
+
 /* =============== menu ===========*/
 
 .bloc_detail_liens {
@@ -404,149 +423,154 @@ price{
     list-style: none;
 }
    
-    #menu_accueil , #menu_commande, #menu_panier {
-      margin-bottom: 0.4em;
-      margin-left: auto;
-      margin-right: auto;
-       }
-    
-    .entete ul li a, .entete_produit ul li a{
-    text-decoration : none;
-    color: black;
+#menu_accueil , #menu_commande, #menu_panier {
+    margin-bottom: 0.4em;
+    margin-left: auto;
+    margin-right: auto;
     }
-   
-    .entete ul ul { 
-    width: 17em;
+
+.entete ul li a, .entete_produit ul li a{
+text-decoration : none;
+color: black;
+}
+
+.entete ul ul { 
+width: 17em;
+height: 1em;
+position: absolute;
+margin-left: -15em;
+margin-top: -0.5em;
+visibility: hidden;
+border-top-left-radius: 0.5em;
+background: rgb(248, 248, 248)
+}
+
+.entete_produit ul ul { 
+    width: 22em;
     height: 1em;
     position: absolute;
-    margin-left: -15em;
+    margin-left: -20.1em;
     margin-top: -0.5em;
     visibility: hidden;
-    border-top-left-radius: 0.5em;
-    background: rgb(248, 248, 248)
-    }
+}
 
-    .entete_produit ul ul { 
-        width: 22em;
-        height: 1em;
-        position: absolute;
-        margin-left: -20.1em;
-        margin-top: -0.5em;
-        visibility: hidden;
-    }
- 
-    .entete ul:hover ul , .entete_produit ul:hover ul{
-    visibility: visible;
-    }
+.entete ul:hover ul , .entete_produit ul:hover ul{
+visibility: visible;
+}
 
-    .liste_menu:hover { 
-        border-bottom: 5em;    
-        border-bottom-right-radius: 0;
-        border-bottom-left-radius: 0;
-    }
+.liste_menu:hover { 
+    border-bottom: 5em;    
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
 
-    .entete ul li a:hover,.entete_produit ul li a:hover{
-        color:rgb(63, 63, 248);
-        font-weight:bold;
-        text-decoration: underline;
-    }
+.entete ul li a:hover,.entete_produit ul li a:hover{
+    color:rgb(63, 63, 248);
+    font-weight: bold;
+    text-decoration: underline;
+}
+
 /*============ infobulle panier =================*/
-    .bulle_panier{
-        width:5em;
-        visibility: hidden;
-        position:absolute;
-        margin-left:-5em;
-        z-index:2;
-    }
-    #menu_panier{
-        height:1em;
-    }
 
-    #menu_panier:hover .bulle_panier{
-        width:9em;
-        padding:0.5em;
-        border-radius:0.5em;
-        background:rgb(248,248,248);
-        visibility: visible;
-        position:relative;
-    }
+.bulle_panier{
+    width: 5em;
+    visibility: hidden;
+    position: absolute;
+    margin-left: -5em;
+    z-index: 2;
+}
 
-    .bulle_panier::after  {
-        content: "";
-        position: absolute;
-        margin-top:-3.7em;
-        margin-left: 4em;
-        border-width: 0.5em;
-        border-style: solid;
-        border-color: transparent transparent rgb(248, 248, 248) transparent;
-    }
-    /*============ infobulle commande =================*/
-    .bulle_commande{
-        width:5em;
-        visibility: hidden;
-        position:absolute;
-       /* margin-left:-5em;*/
-        z-index:2;
-    }
+#menu_panier{
+    height: 1em;
+}
 
-    #menu_commande:hover .bulle_commande{
-        width:6em;
-        padding:0.5em;
-        border-radius:0.5em;
-        background:rgb(248,248,248);
-        visibility: visible;
-        position:relative;
-    }
+#menu_panier:hover .bulle_panier{
+    width: 9em;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    background:rgb(248,248,248);
+    visibility: visible;
+    position: relative;
+}
 
-    .bulle_commande::after  {
-        content: "";
-        position: absolute;
-        margin-top:-3.7em;
-        margin-left: 0em;
-        border-width: 0.5em;
-        border-style: solid;
-        border-color: transparent transparent rgb(248, 248, 248) transparent;
-    }
+.bulle_panier::after  {
+    content: "";
+    position: absolute;
+    margin-top: -3.7em;
+    margin-left: 4em;
+    border-width: 0.5em;
+    border-style: solid;
+    border-color: transparent transparent rgb(248, 248, 248) transparent;
+}
+
+/*============ infobulle commande =================*/
+
+.bulle_commande{
+    width: 5em;
+    visibility: hidden;
+    position: absolute;
+    /* margin-left:-5em;*/
+    z-index: 2;
+}
+
+#menu_commande:hover .bulle_commande{
+    width: 6em;
+    padding: 0.5em;
+    border-radius: 0.5em;
+    background:rgb(248,248,248);
+    visibility: visible;
+    position: relative;
+}
+
+.bulle_commande::after  {
+    content: "";
+    position: absolute;
+    margin-top:-3.7em;
+    margin-left: 0em;
+    border-width: 0.5em;
+    border-style: solid;
+    border-color: transparent transparent rgb(248, 248, 248) transparent;
+}
 
 
-   /*====pop_up produit ====**/
+/*====pop_up produit ====**/
 
-   #pop_up{
-       width: 40%;
-       height: 5em;
-       background:white;
-       border-radius: 0.5em;
-       padding-top: 1em;
-       position: absolute;
-       z-index: 1;
-       margin: 12em 15em 0em 18em;
-       display: none;
-       border: 1px solid black;
-       border:1px solid rgba(161, 160, 160, 0.7);
-       box-shadow: 5px 5px 5px rgba(161, 160, 160, 0.7);
-   }
+#pop_up{
+    width: 40%;
+    height: 5em;
+    background:white;
+    border-radius: 0.5em;
+    padding-top: 1em;
+    position: absolute;
+    z-index: 1;
+    margin: 12em 15em 0em 18em;
+    display: none;
+    border: 1px solid black;
+    border:1px solid rgba(161, 160, 160, 0.7);
+    box-shadow: 5px 5px 5px rgba(161, 160, 160, 0.7);
+}
 
-    #divText{
-        width:100%;
-        text-align: center;
-    }
+#divText{
+    width:100%;
+    text-align: center;
+}
 
-    #div_btn{
-        display: flex;
-        justify-content: space-around;
-        width: 100%;
-        margin-top: 1em;
-    }
+#div_btn{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 1em;
+}
 
-   #btn_retour_accueil{
-      border-radius: 0.5em;
-      background:rgb(199, 178, 195);
-   }
-
-   #btn_finish{
+#btn_retour_accueil{
     border-radius: 0.5em;
     background:rgb(199, 178, 195);
- }
+}
+
+#btn_finish{
+border-radius: 0.5em;
+background:rgb(199, 178, 195);
+}
 
 /*=================fin pop up=======================*/
 
@@ -712,21 +736,21 @@ price{
     }
     
     .price_produit{
-        width:60%;
+        width: 60%;
     }
 
     /*page confirmation*/
 
     #div_confirmation{
-        width:88%;
-        margin-left:1em;
-        margin-right:1em;
+        width: 88%;
+        margin-left: 1em;
+        margin-right: 1em;
     }
     /*============ infobulle panier =================*/
     .bulle_panier{
-        margin-left:-11em;
-        margin-top:-2em;
-        z-index:0;
+        margin-left: -11em;
+        margin-top: -2em;
+        z-index: 0;
     }
 
     #menu_panier:hover .bulle_panier{
@@ -734,15 +758,15 @@ price{
     }
 
     .bulle_panier::after  {
-        margin-top:-1.8em;
+        margin-top: -1.8em;
         margin-left: 6.5em;
         border-color: transparent  transparent  transparent black;
     }
     /*============ infobulle commande =================*/
     .bulle_commande{
-        margin-left:-8em;
-        margin-top:-1.5em; 
-        z-index:2; 
+        margin-left: -8em;
+        margin-top: -1.5em; 
+        z-index: 2; 
     }
    
     #menu_commande:hover .bulle_commande{
@@ -750,7 +774,7 @@ price{
     }
 
     .bulle_commande::after  {
-        margin-top:-2.2em;
+        margin-top: -2.2em;
         margin-left: 2.4em;
         border-color: transparent transparent  transparent black;
     }

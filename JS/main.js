@@ -57,6 +57,7 @@ request.onload = function () {
       //Création bouton détail
       let btn = document.createElement('button');
       btn.id = 'bouton_' + i;
+      btn.setAttribute('class', "bouton");
       btn.setAttribute('onclick', "btnAcceuil(" + i + ")");
      
       //Ajout du bouton
@@ -72,7 +73,6 @@ request.onload = function () {
       btn.style.paddingLeft = '0.2em';
       btn.style.float = 'right';
       btn.style.marginRight = '1em';  
-
   };
 }        
 

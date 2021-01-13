@@ -34,16 +34,24 @@ function confirmPanier(){
 function deleteDiv(ind){
   // confirmation de la suprression
   var conf = false;
+  ind = (ind -1) * 2; //positionnement du bon indicateur sur le panier
   conf = window.confirm('Confirmer la suppression');
-  if(conf){
+ if(conf){
     var panierEnCour = JSON.parse(localStorage.getItem('panier')) 
   //supression dans le panier du tableau du panier
-    panierEnCour.splice(ind -1,2);
+    panierEnCour.splice(ind ,2);
     localStorage.setItem('panier', JSON.stringify(panierEnCour)) 
   }
   document.location.reload()
 }
 
+
+function suppPanier(){
+  var panierElt = JSON.parse(localStorage.getItem('panier')) 
+  //supression dans le panier du tableau du panier
+    panierElt.splice(0);
+    localStorage.setItem('panier', JSON.stringify(panierElt)) 
+}
 
 ///////////////////////////////// info bulle menu /////////////////////
 //Info bulle panier
@@ -60,16 +68,7 @@ var retour = JSON.parse(localStorage.getItem('panier'));
   bullePanier.innerHTML=' Vous avez '+"<span style='color:red ; font-weight:bold'>"+ resultPanier +"</span>"+' article(s) dans votre panier.';
   document.getElementById('menu_panier').appendChild(bullePanier);
 
-//info bull commande
-var allCommande = JSON.parse(localStorage.getItem('allCommande'));
-  if(allCommande == null){
-    var resultat = '0'
-  }else if(allCommande != null){
-    var resultat = '1'
-  }
 
-  var bulleCommande = document.createElement('p');
-  bulleCommande.setAttribute('class','bulle_commande')
-  bulleCommande.innerHTML=' Vous avez '+"<span style='color:red ; font-weight:bold'>"+ resultat +"</span>"+' commande en cours.';
-  document.getElementById('menu_commande').appendChild(bulleCommande);
+
+
 

@@ -94,7 +94,8 @@ var allCommande = [];
   var btnEnvoieFormText = document.createTextNode('envoyer');
   btnEnvoieForm.appendChild(btnEnvoieFormText);
   btnEnvoieForm.setAttribute('onclick','validation(event)');
-
+ 
+console.log
 // ecoute le click sur le btn commande pour afficher le form
   commande.addEventListener('click',openDoc);
   closeForm.addEventListener('click', closeDoc);
@@ -194,6 +195,7 @@ function validation(event){
    if(test==true){
    return;
   }
+  
 }
 
 // on récupère les données de la réponse pour les placer en paramètre de l'url
@@ -206,7 +208,7 @@ const renderResponse = order => {
   var newCommande = {firstName , idOrder}; console.log(newCommande);
   allCommande.push(newCommande);
   localStorage.setItem('allCommande', JSON.stringify(newCommande)); 
-
+  btnEnvoieForm.addEventListener('click',suppPanier())
   const urlParams = `confirmation.html?id=${idOrder}&name=${firstName}`;
   window.open(urlParams,"_self");
 }
