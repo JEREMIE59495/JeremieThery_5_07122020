@@ -6,7 +6,7 @@ var bloc ;
 var ind = 0; // indentation des blocs articles
 var z = -1;   // lentille
 
-// Envoi des id sur le formulaire 
+// Envoi des id sur le local storage 
 var product_id = []
 product_id = JSON.parse(localStorage.getItem('product_id')) || []; 
 localStorage.setItem('product_id', JSON.stringify(product_id));  
@@ -135,5 +135,5 @@ for(var i = 0; i<retour.length; i+=2){
   let btn = document.createElement('button');
   btn.id = 'commande' ;
   document.getElementById('recap').appendChild(btn);
-  var btnText = document.createTextNode('Commande');
+  var btnText = document.createTextNode('Commander');
   btn.appendChild(btnText);

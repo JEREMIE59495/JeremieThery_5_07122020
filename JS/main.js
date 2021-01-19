@@ -65,7 +65,7 @@ request.onload = function () {
       var btnText = document.createTextNode('+ détail');
       btn.appendChild(btnText);
 
-       //style du bouton
+      //style du bouton
       btn.style.fontSize = '0.8em';
       btn.style.border = '1px solid black';
       btn.style.borderRadius = '0.5em';

@@ -98,15 +98,8 @@ var allCommande = [];
 // ecoute le click sur le btn commande pour afficher le form
   commande.addEventListener('click',openDoc);
   closeForm.addEventListener('click', closeDoc);
-  /*
+  
 // Contrôle du formulaire
-  nameElt = document.forms["formulaire_commande"]["prenom"].value;
-  surnameElt = document.forms["formulaire_commande"]["nom"].value;
-  addressElt = document.forms["formulaire_commande"]["adresse"].value;
-  cityElt = document.forms["formulaire_commande"]["ville"].value;
-  mailElt = document.forms["formulaire_commande"]["mail"].value;
-  */
-
   var inputValid = /[0-9]/; 
   var cpValid = /[a-z,A-Z]/;
   var mailValid =/[@]/;
@@ -187,13 +180,11 @@ function validation(event){
         renderResponse(jsonResponse)
       })
       alert ('Vous allez être redirigé')
-      .catch(err => console.log(err))
-     
+      .catch(err => console.log(err))   
   }
    if(test==true){
    return;
   }
-  
 }
 
 // on récupère les données de la réponse pour les placer en paramètre de l'url
