@@ -74,7 +74,7 @@ fetch('http://localhost:3000/api/cameras/'+ idAppareil)
             produitValide = JSON.parse(localStorage.getItem('panier')) || [];
             produitValide.push(data._id);
             produitValide.push(choix_option.selectedIndex-2);
-            localStorage.setItem('panier', JSON.stringify(produitValide));
+            localStorage.setItem('panier', JSON.stringify(produitValide)); "Ajout"
             pop_up.style.display ='block';
         }
     }

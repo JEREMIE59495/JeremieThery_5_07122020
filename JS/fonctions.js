@@ -3,7 +3,7 @@
 /*fonction pour envoi sur localstorage */
 function btnAcceuil(i){
   localStorage.setItem('produit', request.response[i]._id);
-       document.location.href="http://produit.html";
+       document.location.href="produit.html";
 }
 
 
@@ -22,11 +22,11 @@ function btnAcceuil(i){
 
 // fonction d'action sur les bouton
 function retourAccueil(){
-    document.location.href="http://index.html";
+    document.location.href="index.html";
 }
 
 function confirmPanier(){
-    document.location.href="http://panier.html";
+    document.location.href="panier.html";
 }
 
 /////////////////// page panier /////////////////////////

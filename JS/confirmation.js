@@ -14,7 +14,7 @@
   document.getElementById('div_confirmation').appendChild(titreConfirmation);
   document.getElementById('titre_confirmation').appendChild(confirmationtElt);
 
-// message en cas decommande vide
+// message en cas de commande vide
   if(allCommande == null){
     titreConfirmation.style.display ='none';
     var message1 = document.createElement('p');
