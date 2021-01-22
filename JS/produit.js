@@ -3,7 +3,7 @@ var produitValide = [];
 
 fetch('http://localhost:3000/api/cameras/'+ idAppareil)
 .then(response => response.json())
-.then(data => { 
+.then(data => {
 
     var blocTitle = document.createElement('h2');
     blocTitle.id = 'title';
@@ -18,14 +18,14 @@ fetch('http://localhost:3000/api/cameras/'+ idAppareil)
     //Insertion de l'image
     var imageUrl = document.createElement('img');
     imageUrl.id = 'image_produit' ;
-    imageUrl.src = data.imageUrl;         
+    imageUrl.src = data.imageUrl;
     document.getElementById('img_produit').appendChild(imageUrl);
 
     //Création du bloc description
     var descriptionProduit = document.createElement('article');
     descriptionProduit.id = 'description_produit';
     document.getElementById('conteneur_produit').appendChild(descriptionProduit);
-    document.querySelector('article').innerHTML = data.description;              
+    document.querySelector('article').innerHTML = data.description;
 
     //Création du bloc option
     var optionProduit = document.createElement('option_bloc');
@@ -50,7 +50,7 @@ fetch('http://localhost:3000/api/cameras/'+ idAppareil)
     priceProduit.id = 'prix_produit';
     document.getElementById('conteneur_produit').appendChild(priceProduit);
     document.querySelector('price').innerHTML = data.price/100 + " €";
-    
+
     //Création bouton ajouter au panier
     let ajoutPanier = document.createElement('button');
     ajoutPanier.id = 'button';
@@ -76,6 +76,6 @@ fetch('http://localhost:3000/api/cameras/'+ idAppareil)
             produitValide.push(choix_option.selectedIndex-2);
             localStorage.setItem('panier', JSON.stringify(produitValide));
             pop_up.style.display ='block';
-        }     
+        }
     }
 })

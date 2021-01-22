@@ -6,10 +6,10 @@ var bloc ;
 var ind = 0; // indentation des blocs articles
 var z = -1;   // lentille
 
-// Envoi des id sur le local storage 
+// Envoi des id sur le local storage
 var product_id = []
-product_id = JSON.parse(localStorage.getItem('product_id')) || []; 
-localStorage.setItem('product_id', JSON.stringify(product_id));  
+product_id = JSON.parse(localStorage.getItem('product_id')) || [];
+localStorage.setItem('product_id', JSON.stringify(product_id));
 
 //Création du bloc page
 var ajoutElt = document.createElement('aside');
@@ -31,13 +31,13 @@ if(retour == null){
   message.innerHTML =' Votre panier est vide ';
   document.getElementById('conteneur_panier').appendChild(message)
 }else{
-for(var i = 0; i<retour.length; i+=2){ 
+for(var i = 0; i<retour.length; i+=2){
   fetch('http://localhost:3000/api/cameras/' + retour[i] )
   .then(response => response.json())
-  .then(data => { 
+  .then(data => {
       ind++
       z+=2
-   
+
     //création du bloc element selectionné
       var newBloc = bloc+ind ;
       newBloc = document.createElement('div');
@@ -55,7 +55,7 @@ for(var i = 0; i<retour.length; i+=2){
       var descriptionElt = document.createElement ('div');
       descriptionElt.id = 'description_produit_panier';
       newBloc.appendChild(descriptionElt);
-    
+
     //Insertion du titre
       var titleElt = document.createElement('p');
       titleElt.id = 'nom_produit_panier';
@@ -66,19 +66,19 @@ for(var i = 0; i<retour.length; i+=2){
       var optionElt = document.createElement('p');
       optionElt.id = 'option_produit' + ind;
       if(data.lenses[retour[z]] === undefined){
-          data.lenses[retour[z]] = 'Aucune'   
+          data.lenses[retour[z]] = 'Aucune'
       }
 
       optionElt.innerHTML = 'Option lentille choisi : '+'<span style="font-weight: bold ; font-style:italic ; color:blue;">'+ data.lenses[retour[z]]+ '</span>';
       descriptionElt.appendChild(optionElt);
-     
+
     //Insertion du prix
       var priceElt = document.createElement('p');
       priceElt.id = 'price_produit_panier'+ind;
       priceElt.setAttribute('class','price_produit');
       priceElt.textContent = data.price /100+' €';
       descriptionElt.appendChild(priceElt);
-      
+
     //Création btn supression
       var deleteDivElt = document.createElement('button');
       deleteDivElt.id = 'div_delete';
@@ -86,7 +86,7 @@ for(var i = 0; i<retour.length; i+=2){
       deleteTexteElt = document.createTextNode('Supprimer');
       deleteDivElt.setAttribute('onclick',"deleteDiv(" + ind + ")");
       deleteDivElt.appendChild(deleteTexteElt);
-      
+
     //recuperation des prix
       var nbTotalArticle = retour.length/2;
       totalPannierElt += data.price;
@@ -96,7 +96,7 @@ for(var i = 0; i<retour.length; i+=2){
         var art= ' article'
       }
       totalPrice.innerHTML =  'Vous avez '+'<span style="color:red ; font-size:1.2em">' + nbTotalArticle +'</span>'+ art + '</br>' +' pour un total de : ' +'<span style="color:red ; font-size:1.2em">'+totalPannierElt /100 +'</span>'+' €';
-    
+
     //envoi des id du paniers dans le tableau
       product_id.push(data._id,);
 
@@ -105,7 +105,7 @@ for(var i = 0; i<retour.length; i+=2){
       localStorage.setItem('totalConfirmation', JSON.stringify(totalConfirmation));
   })
   .catch(err => console.log(err));
-}                                                   
+}
 }
 //Bloc récapitulatif
   var asideRecapElt = document.createElement('aside');
@@ -126,11 +126,11 @@ for(var i = 0; i<retour.length; i+=2){
   recapElt.id='recap';
   document.getElementById('asideRecap').appendChild(recapElt);
 
-//bloc total prix 
+//bloc total prix
   var totalPrice = document.createElement('div');
   totalPrice.id = 'totalPrice';
   document.getElementById('recap').appendChild(totalPrice);
-  
+
 //creation du bouton pour apparatition formulaire
   let btn = document.createElement('button');
   btn.id = 'commande' ;

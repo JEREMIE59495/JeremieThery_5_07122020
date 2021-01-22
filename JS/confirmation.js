@@ -6,7 +6,6 @@
   divConfirmation.id = 'div_confirmation';
   document.getElementById('conteneur_confirmation').appendChild(divConfirmation);
 
-
 //Création du titre de confirmation
   var titreConfirmation = document.createElement('p');
   titreConfirmation.setAttribute('class','texte_confirmation');
@@ -46,7 +45,7 @@
   var prixTotalTexte = document.createTextNode ('Merci pour votre confiance');
   document.getElementById('merci').appendChild(prixTotalTexte);
 
-  //lien retour a l'accueil  
+  //lien retour a l'accueil
   var accueil = document.createElement('button');
   accueil.id='retour_accueil_btn';
   accueil.setAttribute('onclick',"retourAccueil()");

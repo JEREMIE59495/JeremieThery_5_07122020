@@ -1,9 +1,9 @@
-///////////////////////// main.js /////////////////////////////// 
+///////////////////////// main.js ///////////////////////////////
 
 /*fonction pour envoi sur localstorage */
-function btnAcceuil(i){      
+function btnAcceuil(i){
   localStorage.setItem('produit', request.response[i]._id);
-       document.location.href="http://127.0.0.1:5500/produit.html"; 
+       document.location.href="http://produit.html";
 }
 
 
@@ -13,20 +13,20 @@ function btnAcceuil(i){
   function openDoc(){
     formulaire_commande.style.display ='block';
    }
- 
+
    function closeDoc(){
      formulaire_commande.style.display ='none';
    }
 
 ///////////////////////////// pop up //////////////////////////
-  
+
 // fonction d'action sur les bouton
 function retourAccueil(){
-    document.location.href="http://127.0.0.1:5500/index.html";
+    document.location.href="http://index.html";
 }
 
 function confirmPanier(){
-    document.location.href="http://127.0.0.1:5500/panier.html";
+    document.location.href="http://panier.html";
 }
 
 /////////////////// page panier /////////////////////////
@@ -37,10 +37,10 @@ function deleteDiv(ind){
   ind = (ind -1) * 2; //positionnement du bon indicateur sur le panier
   conf = window.confirm('Confirmer la suppression');
  if(conf){
-    var panierEnCour = JSON.parse(localStorage.getItem('panier')) 
+    var panierEnCour = JSON.parse(localStorage.getItem('panier'))
   //supression dans le panier du tableau du panier
     panierEnCour.splice(ind ,2);
-    localStorage.setItem('panier', JSON.stringify(panierEnCour)) 
+    localStorage.setItem('panier', JSON.stringify(panierEnCour))
   }
   document.location.reload()
 }
@@ -63,8 +63,3 @@ var retour = JSON.parse(localStorage.getItem('panier'));
   bullePanier.setAttribute('class','bulle_panier');
   bullePanier.innerHTML=' Vous avez '+"<span style='color:red ; font-weight:bold'>"+ resultPanier +"</span>"+' article(s) dans votre panier.';
   document.getElementById('menu_panier').appendChild(bullePanier);
-
-
-
-
-
